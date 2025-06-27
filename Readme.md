@@ -166,10 +166,10 @@ cd OrderManagementSystem
 dotnet restore
 
 # Run migrations
-dotnet ef database update --project src/OrderManagement.Infrastructure
+dotnet ef database update --project OrderManagement.Infrastructure
 
 # Start the API
-cd src/OrderManagement.Api
+cd OrderManagement.Api
 dotnet run
 
 # Access Swagger UI
