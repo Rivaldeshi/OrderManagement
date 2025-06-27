@@ -120,31 +120,19 @@ GET    /api/orders/analytics/period  # Time-filtered analytics
 var analytics = await _analyticsService.GetOrderAnalyticsAsync();
 ```
 
-### 2. Database Optimizations
-- **Navigation Property Loading**: Strategic use of `Include()` and `ThenInclude()`
-- **Computed Properties**: Database-level calculations where possible
-- **Optimized Queries**: Efficient LINQ expressions
-
-### 3. Memory Management
-- **Proper Disposal**: IDisposable implementation in test fixtures
-- **Scope Management**: Correct DbContext lifecycle handling
-
 ## Technical Decisions & Assumptions
 
 ### Assumptions Made
 1. **Business Rules**: Assumed standard e-commerce discount logic
 2. **Data Persistence**: SQL Server for production, in-memory for testing
 3. **Authentication**: Not implemented (assumed to be handled by infrastructure)
-4. **Concurrent Access**: Basic optimistic concurrency handling
 
 ### Design Patterns Used
 - **Repository Pattern**: Clean data access abstraction
 - **Unit of Work**: Transaction management and consistency
-- **Strategy Pattern**: Extensible discount calculation
 - **CQRS-Light**: Separate read/write concerns without full complexity
 
 ### Technology Choices
-- **.NET 8**: Latest LTS version for performance and features
 - **Entity Framework Core**: ORM for productivity and maintainability
 - **AutoMapper**: Clean entity-to-DTO mapping
 - **FluentValidation**: Declarative validation rules
@@ -162,13 +150,6 @@ var analytics = await _analyticsService.GetOrderAnalyticsAsync();
 - **Memory Management**: Proper resource disposal
 - **Response Times**: Sub-100ms response times for most endpoints
 
-## Future Enhancements
-
-### Potential Improvements
-1. **Advanced Analytics**: Real-time dashboards and reporting
-2. **Event Sourcing**: Complete audit trail for order changes
-3. **Distributed Caching**: Redis for multi-instance deployments
-4. **Rate Limiting**: API throttling for production resilience
 
 
 ## Getting Started
@@ -180,7 +161,7 @@ var analytics = await _analyticsService.GetOrderAnalyticsAsync();
 ### Running the Application
 ```bash
 # Clone and restore
-git clone <repository-url>
+git clone https://github.com/Rivaldeshi/OrderManagement.git
 cd OrderManagementSystem
 dotnet restore
 
